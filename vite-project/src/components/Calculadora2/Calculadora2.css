@@ -1,0 +1,45 @@
+
+.contenedor__calculadora{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) ;
+    width: 500px;
+
+    
+}
+
+.pantalla{
+    background-color:plum;
+    width: 100%;
+    
+    text-align: center;
+    grid-column: span 4;
+    padding: 10px;
+}
+
+.botones{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+button{
+
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%;
+      
+}
+button:hover {
+    background-color: #caabab;
+  }
+
+.btnRestar, .btnBorrar, .btnIgual{
+  background-color:lightskyblue;
+}
+
+.btnSumar, .btnMultiplicar, .btnDividir{
+  background-color:tomato;
+}
+.btnIgual{
+  grid-column: span 4; 
+}
+
