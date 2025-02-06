@@ -1,4 +1,4 @@
-/* 
+
 body {
   background-color: #333;
   color: #fff;
@@ -60,6 +60,9 @@ body {
 .mr-20 {
   margin-right: 20px;
 }
+.mb-20{
+  margin-bottom: 20px;
+}
 
 .taskNumber {
   color: #999;
@@ -77,4 +80,4 @@ body {
 
 .taskText {
   flex: 1;
-} */
+}

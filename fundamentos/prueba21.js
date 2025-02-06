@@ -381,5 +381,78 @@ const puedeFormarPalabra2 = (string, array) => {
  
     return contador === palabraLength ? console.log(true) : console.log(false);
 }
-puedeFormarPalabra('PERRO', coleccion)  // false
-puedeFormarPalabra('CASO', coleccion)   // true
+// puedeFormarPalabra('PERRO', coleccion)  // false
+// puedeFormarPalabra('CASO', coleccion)   // true
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
+ 
+Enunciado Ejercicio 45:
+Dado un array de números, elimina los números duplicados.
+ 
+Ejemplos:
+eliminarDuplicados([1, 1, 2, 2, 3, 4, 5, 5, 5, 6])
+ 
+// Devuelve:
+[ 1, 2, 3, 4, 5, 6 ]
+*/
+
+const eliminarDuplicados = (array) =>{
+    let arrayLimpio = [];
+
+    for(let i=0; i<array.length; i++){
+        if(!arrayLimpio.includes(array[i])){
+            arrayLimpio.push(array[i]);
+        }
+    }
+    return arrayLimpio
+
+}
+//console.log(eliminarDuplicados([1, 1, 2, 2, 3, 4, 5, 5, 5, 6]))
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
+ 
+Enunciado Ejercicio 46:
+Crea una función a la que le pasemos una nota y nos de una calificación:
+ 
+0-3: Deficiente
+3-5: Insuficiente
+5-6: Suficiente
+6-7: Bien
+7-9: Notable
+9-10: Sobresaliente
+ 
+Ejemplos:
+calificar(8.2) // Notable
+*/
+
+const calificar = (nota) => {
+    if(typeof nota != "number") return "Introduce una nota numérica";
+    
+
+    const evaluacion =
+    (nota < 3 && nota >=0 ) ?  "Deficiente":
+    (nota < 5 && nota >=3) ? "Insuficiente":
+    (nota < 6 && nota >=5) ?"Suficiente":
+    (nota < 7 && nota >=6) ?"Bien":
+    ( nota <9 && nota >=7) ? "Notable":
+    ( nota <=10 && nota >=9) ? "Sobresaliente" : "Nota incorrecta";
+    return evaluacion;
+
+}
+// Notable
+console.log(calificar(8.2) )
+console.log(calificar(9.0) )
+console.log(calificar("dfg") )
+console.log(calificar(-9.0) )
