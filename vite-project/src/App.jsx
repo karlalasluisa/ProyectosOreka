@@ -6,13 +6,15 @@ import CajaTexto from "./components/CajaTexto/CajaTexto"
 import Calculadora2 from "./components/Calculadora2/Calculadora2"
 import Calculadora from "./components/CalculadoraBásica/Calculadora"
 
+import TodosComponentesUseEffect from "./components/componentsUseEffect/TodosComponentesUseEffect"
+
 function App() {
 
   return (
     <>
+    <h1>Ejemplos con UseEffect y useState</h1>
      <div>
-      <h2>Contador con pasos personalizados</h2>
-      <Button1/>
+      <TodosComponentesUseEffect/>
     </div>
     {/* <div>
       <h2>Contador con pasos personalizados</h2>

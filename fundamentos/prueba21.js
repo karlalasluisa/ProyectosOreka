@@ -190,6 +190,196 @@ const filtrarPorDecada=(peliculas, decada)=>{
 }
 
 //console.log(filtrarPorGenero(peliculas, "accion"));
-console.log(filtrarPorDecada(peliculas, "80s"));
+//console.log(filtrarPorDecada(peliculas, "80s"));
 
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
  
+Enunciado Ejercicio 33:
+Crea una función a la cual le pase un string y lo convierta
+a un listado en un objeto que cuente el número de elementos.
+ 
+Las palabras no deben incluir guiones ni guiones bajos.
+ 
+Ejemplos:
+contarElementos("pc -ordenador _computadora consola- ps5 theLastOfUs ordenador");
+ 
+Devuelve:
+{ pc: 1, ordenador: 2, computadora: 1, consola: 1, ps5: 1, theLastOfUs: 1 }
+*/
+
+ const contarElementos =(string)=>{
+    let objeto = {};
+    let arrayObjetos = string.split(" ");
+
+    for(let i=0; i< arrayObjetos.length; i++){
+        let palabraLimpia;
+        palabraLimpia = arrayObjetos[i].replace("-", " ");
+        palabraLimpia = palabraLimpia.replace("_", " ");
+        palabraLimpia = palabraLimpia.trim();
+        arrayObjetos[i]=palabraLimpia;
+
+        let contador=0;
+
+        for(let j=0; j< arrayObjetos.length; j++){
+            if(arrayObjetos[i]== arrayObjetos[j]){
+                contador++;
+            }
+        }
+        objeto[arrayObjetos[i]]= contador;
+    }
+    return objeto
+ }
+ 
+//console.log(contarElementos("pc -ordenador _computadora consola- ps5 theLastOfUs ordenador"));
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
+ 
+Enunciado Ejercicio 13:
+Crea una funcion que calcule el area de un cuadrado, un rectangulo o un triangulo
+ 
+Ejemplos:
+calcularAreaPoligono({ tipo: 'triangulo', base: 6, altura: 9 });
+ 
+Devuelve: 27
+ 
+*/
+
+
+const calcularAreaPoligono = (poligono) =>{
+
+    const base= poligono.base;
+    const altura=poligono.altura;
+
+    switch(poligono.tipo){
+        case 'triangulo':
+            console.log( base*altura/2);
+            break;
+        case 'rectangulo':
+            console.log( base*altura);
+            break;
+        case 'cuadrado':
+            console.log( base*altura);
+            break;
+        default:
+            console.log("Tipo incorrecto")
+            break;
+    }
+}
+//calcularAreaPoligono({ tipo: 'triangulo', base: 6, altura: 9 });
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
+ 
+Enunciado Ejercicio 41:
+Crea una función que invierta los números de un número entero.
+ 
+Ejemplos:
+invertirEntero(123)   // 321
+invertirEntero(-123)  // -321
+ 
+*/
+ 
+const invertirEntero = (numero) => {
+    let esPositivo= numero >= 0 ? true: false; 
+
+    let strNum= Math.abs(numero).toString()
+    let inverso="";
+
+    for(let i=(strNum.length-1) ; i>=0; i--){
+        inverso += strNum[i];
+    }
+    if( esPositivo==false){
+        inverso=inverso*(-1)
+    }
+    console.log(parseInt(inverso))
+}
+const invertirEntero2 = (num) => {
+    let esNegativo = num >= 0 ? false: true;
+    return esNegativo ? parseInt(Math.abs(num).toString().split("").reverse().join("")) * -1 : volteadoNum;
+}
+// invertirEntero(123)   // 321
+// invertirEntero(-123)  // -321
+/*
+Advertencias:
+- En español por fines didacticos, en la vida real usa nombres en ingles.
+- Test en cada ejercicio, lo veremos al final del curso para ir al grano.
+- Ejercicios genéricos, puedes usar cualquier lenguaje.
+- Ejercicios nuevos y diferentes a los del Master en Lógica de Programación
+- Siempre mostrar el resultado en la consola / terminal (salvo excepciones).
+- Hay muchas soluciones validas para un mismo ejercicio.
+ 
+Enunciado Ejercicio 43:
+Dada una colección de letras:
+[
+   ['A','B','C','D'],
+   ['Z','V','K','S'],
+   ['F','G','O','E']
+]
+ 
+Crea una función que me diga si la palabra que le paso como parametro
+se puede formar con las letras de la colección
+ 
+Ejemplos:
+puedeFormarPalabra('PERRO', coleccion)  // false
+puedeFormarPalabra('CASO', coleccion)   // true
+ 
+*/
+const coleccion = [
+    ['A','B','C','D'],
+    ['Z','V','K','S'],
+    ['F','G','O','E']
+ ]
+  
+const puedeFormarPalabra = (palabra, coleccion)=>{
+    let arryPalabra=palabra.split("");
+    
+    let count=0;
+
+    for(let i=0;i<coleccion.length; i++){
+        for( let j=0; j<coleccion[i].length;j++){
+            if(arryPalabra.includes(coleccion[i][j])){
+                count++;
+            }
+        }
+    }
+    
+    console.log( count === arryPalabra.length ? true: false);
+}
+
+const puedeFormarPalabra2 = (string, array) => {
+    let puedeFormar = false;
+ 
+    let contador = 0;
+    let palabraLength = string.split("").length;
+    let arrayLetras = string.split("");
+ 
+    for(let i = 0; i < array.length; i++){
+        for(let j = 0; j < array[i].length; j++){
+            if(arrayLetras.includes(array[i][j])){
+                contador++;
+            }
+        }
+    }
+ 
+    return contador === palabraLength ? console.log(true) : console.log(false);
+}
+puedeFormarPalabra('PERRO', coleccion)  // false
+puedeFormarPalabra('CASO', coleccion)   // true

@@ -1,4 +1,4 @@
-
+/* 
 .contenedor__calculadora{
     display: grid;
     grid-template-columns: repeat(4, 1fr) ;
@@ -42,4 +42,4 @@ button:hover {
 .btnIgual{
   grid-column: span 4; 
 }
-
+ */
